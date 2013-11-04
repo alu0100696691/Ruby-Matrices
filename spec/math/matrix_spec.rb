@@ -2,12 +2,12 @@ require "matrix.rb"
 
 describe Matrix do
     before :all do
-        A = Matrix.new("matrix_a")
-        B = Matrix.new("matrix_b")
+        A = Matrix.new("../../input/matrix_a")
+        B = Matrix.new("../../input/matrix_b")
     end
-
- it 'existe metodo para leer fichero' do
-     Matrix.new("matrix_a").read_matrix?.should == true
- end
+    
+    it 'existe metodo para leer fichero' do
+        A.read_matrix?.should == true
+    end
 
 end
