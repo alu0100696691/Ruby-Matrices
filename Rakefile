@@ -6,9 +6,9 @@ task :default => :spec
 
 desc "Ejecucion de pruebas rspec"
 task :spec do
-      sh "rspec --color --format documentation -Ilib -Ispec spec/math/fraction_spec.rb"
+      sh "rspec --color --format documentation -Ilib -Ispec spec/math/matrix_spec.rb"
 end
 desc "Ejecucion de test con formato html"
 task :html do
-      sh "rspec -I. spec/math/fraction_spec.rb --format documentation --format html --out test.html"
+      sh "rspec -I. spec/math/matrix_spec.rb --format documentation --format html --out test.html"
 end
