@@ -1,16 +1,41 @@
-class Matrix
+class Matrix_
     @mat
     @filename
     def initialize(fn)
-        @mat = 0
+        @mat = []
         @filename=fn
     end
     
-    def raad_matrix
+attr_accessor :mat
+
+    def read_matrix
         text = File.open(@filename).read
-        a = text.split(/\n\n+/)
-        a = to_m(a)
+        @mat = text.split(/\n\n+/)
+        @mat = to_m()
+    end
+
+    def mapmap()
+        @mat.map { |r|
+            r.map { |e|
+                yield e
+            }
+        }
+    end
+
+    def to_m()
+        @mat = @mat.split(/\n/)
+        @mat = @mat.map { |r| r.split(/\s+/) }
+        @mat = mapmap(@mat) { |x| x.to_f }
     end
 
 
+
+
 end
+
+
+
+
+
+
+
