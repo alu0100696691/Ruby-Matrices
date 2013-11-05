@@ -1,25 +1,30 @@
 require "matrix.rb"
 
-describe Matrix_ do
+describe Matrix_T do
     before :all do
-        A = Matrix_.new("../../input/matrix_a")
-        B = Matrix_.new("../../input/matrix_b")
+        A = Matrix_T.new("input/matrix_a")
+        B = Matrix_T.new("input/matrix_b")
     end
     
     it 'existe una clase Matrix' do
-        A.instance_of?(Matrix_) == true
+        A.instance_of?(Matrix_T) == true
     end
     
-    it 'No se ha cargado los datos del fichero al objeto Matrix' do
-        A.mat.should be_empty
+    it 'No se ha cargado los datos del fichero al objeto Matrix_T' do
+        A.mat.should eq(0)
     end
 
     it 'Se han cargado los datos a la clase' do
-        A.mat.empty? == false
+        A.read_matrix
+        A.mat.should be_kind_of(Array)
     end
 
-    it 'Se muestra correctamente una matriz' do
-        A.instance_of?(print_matrix) == true
+    it 'Existe metodo imprimir matrix?' do
+        A.should respond_to("print_matrix")
+    end
+
+    it 'Se muetra la matriz correctamente?' do
+       #A.print_matrix.should eq("| { 1\t2 } , { 4\t5 } |")
     end
 
 end
