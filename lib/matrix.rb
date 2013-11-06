@@ -71,6 +71,18 @@ attr_accessor :mat
     c
     end
 
+    def *(b)
+        c=self
+        for i in(0...@mat.length)
+            for j in(0...@mat.length)
+                c.mat[i][j]=0
+                for k in (0...@mat.length)
+                    c.mat[i][j] += @mat[i][k]*b.mat[k][j]
+                end
+            end
+        end
+        c
+    end
 
 end
 

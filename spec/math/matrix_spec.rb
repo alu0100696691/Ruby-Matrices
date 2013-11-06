@@ -49,7 +49,7 @@ describe Matrix_T do
     end
 
     it 'multiplicar matrices, multiplica correctamente?' do
-        (A*B).to_s.should eq("| { 7.0\t10.0\t } , { 19.0\t28.0\t } , |")
+        (A*B).to_s.should eq("| { 12.0\t120.0\t } , { 27.0\t270.0\t } , |")
     end
 
 end
