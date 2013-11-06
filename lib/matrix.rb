@@ -62,7 +62,13 @@ attr_accessor :mat
     end
 
     def +(b)
-    
+        c = self
+        for i in (0...@mat.length)
+            for j in(0...@mat.length)
+                c.mat[i][j] = self.mat[i][j]+b.mat[i][j]
+            end
+        end
+    c
     end
 
 

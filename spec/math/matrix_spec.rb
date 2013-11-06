@@ -14,11 +14,16 @@ describe Matrix_T do
         A.mat.should eq(0)
     end
 
-    it 'Se han cargado los datos a la clase' do
+    it 'Se han cargado los datos al objeto A' do
         A.read_matrix
         A.mat.should be_kind_of(Array)
     end
 
+    it 'Se han cargado los datos al objeto B' do
+        B.read_matrix
+        B.mat.should be_kind_of(Array)
+    end
+    
     it 'Existe metodo imprimir matrix?' do
         A.should respond_to("print_matrix")
     end
@@ -38,5 +43,14 @@ describe Matrix_T do
     it 'suma de matrices, suma correctamente?' do
         (A+B).to_s.should eq("| { 2.0\t4.0\t } , { 7.0\t9.0\t } , |")
     end
+
+    it 'multiplicar matrices, existe metodo?' do
+        A.should respond_to("*")
+    end
+
+    it 'multiplicar matrices, multiplica correctamente?' do
+        (A*B).to_s.should eq("| { 7.0\t10.0\t } , { 19.0\t28.0\t } , |")
+    end
+
 end
 
