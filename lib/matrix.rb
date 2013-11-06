@@ -11,6 +11,7 @@ attr_accessor :mat
     def read_matrix
         text = File.open(@filename).read
         a = text.split(/\n\n+/)
+        a = text.split(/\n/)
         @mat = to_m(a)
     end
 
@@ -23,25 +24,31 @@ attr_accessor :mat
     end
 
     def to_m(a)
-        a = a.split(/\n/)
+        
         a = a.map { |r| r.split(/\s+/) }
         a = mapmap(a) { |x| x.to_f }
     end
 
     def print_matrix()
+        s = "| "
         printf "| "
         for i in (0... @mat.length)
             for j in (0... @mat.length)
                 if j==0
                     printf "{ "
+                    s += "{ "
                 end
-                "#{@mat[i][j]}\t"
+                printf "#{@mat[i][j]}\t"
+                s += "#{@mat[i][j]}\t"
                 if j == @mat.length-1
-                    printf " } , "
+                    printf " } ,"
+                    s += " } , "
                 end
             end
         end
-        printf " |"
+        printf "|"
+        s += "|"
+    
     end
 
 

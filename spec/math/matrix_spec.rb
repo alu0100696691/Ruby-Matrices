@@ -24,7 +24,11 @@ describe Matrix_T do
     end
 
     it 'Se muetra la matriz correctamente?' do
-       #A.print_matrix.should eq("| { 1\t2 } , { 4\t5 } |")
+       A.print_matrix.should eq("| { 1.0\t2.0\t } , { 4.0\t5.0\t } , |")
+    end
+
+    it 'Prueba de suma de matrices' do
+        A.should respond_to("+")
     end
 
 end
