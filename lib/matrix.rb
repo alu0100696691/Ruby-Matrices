@@ -29,25 +29,39 @@ attr_accessor :mat
         a = mapmap(a) { |x| x.to_f }
     end
 
+    def to_s()
+        s="| "
+        for i in (0... @mat.length)
+            for j in (0... @mat.length)
+                if j==0
+                    s += "{ "
+                end
+                s += "#{@mat[i][j]}\t"
+                if j == @mat.length-1
+                    s += " } , "
+                end
+            end
+        end
+        s += "|"
+    end
+
     def print_matrix()
-        s = "| "
         printf "| "
         for i in (0... @mat.length)
             for j in (0... @mat.length)
                 if j==0
                     printf "{ "
-                    s += "{ "
                 end
                 printf "#{@mat[i][j]}\t"
-                s += "#{@mat[i][j]}\t"
                 if j == @mat.length-1
                     printf " } ,"
-                    s += " } , "
                 end
             end
         end
         printf "|"
-        s += "|"
+    end
+
+    def +(b)
     
     end
 

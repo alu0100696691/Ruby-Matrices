@@ -24,12 +24,19 @@ describe Matrix_T do
     end
 
     it 'Se muetra la matriz correctamente?' do
-       A.print_matrix.should eq("| { 1.0\t2.0\t } , { 4.0\t5.0\t } , |")
+       A.print_matrix.should eq(nil)
     end
-
-    it 'Prueba de suma de matrices' do
+    
+    it 'Se convierte la matriz correctamente?' do
+        A.to_s.should eq("| { 1.0\t2.0\t } , { 4.0\t5.0\t } , |")
+    end
+    
+    it 'suma de matrices, existe metodo?' do
         A.should respond_to("+")
     end
 
+    it 'suma de matrices, suma correctamente?' do
+        (A+B).to_s.should eq("| { 2.0\t4.0\t } , { 7.0\t9.0\t } , |")
+    end
 end
 
